@@ -1,0 +1,149 @@
+---
+import { Image } from "astro:assets";
+import TiquetButton from "../components/TiquetButton.astro";
+import bentoImage3 from "../../public/bento/BentoImage3.webp";
+---
+
+<main class="container text-center" id="services">
+  <section>
+    <div class="py-10 sm:py-14 rounded-xl">
+      <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+        <div class="flex flex-col items-start justify-center gap-5">
+          <TiquetButton title="Services" />
+          <h3
+            class="text-balance text-left text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl"
+          >
+            Everything you need to clean
+          </h3>
+        </div>
+        <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
+          <div class="relative lg:row-span-2">
+            <div
+              class="absolute inset-px rounded-lg bg-white drop-shadow-lg lg:rounded-l-[2rem]"
+            >
+            </div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-l-[calc(2rem+1px)]"
+            >
+              <div class="px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
+                <p
+                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center"
+                >
+                  Service #1
+                </p>
+                <p
+                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"
+                >
+                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
+                  qui lorem cupidatat commodo.
+                </p>
+              </div>
+              <div
+                class="relative min-h-[30rem] w-full grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm"
+              >
+                <div
+                  class="absolute inset-x-10 bottom-0 top-10 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-2xl"
+                >
+                  <Image
+                    class="size-full object-cover object-center"
+                    src={bentoImage3}
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-l-[2rem]"
+            >
+            </div>
+          </div>
+          <div class="relative max-lg:row-start-1">
+            <div
+              class="absolute inset-px rounded-lg bg-white drop-shadow-lg max-lg:rounded-t-[2rem]"
+            >
+            </div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
+            >
+              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p
+                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center"
+                >
+                  Serice #2
+                </p>
+                <p
+                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"
+                >
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit
+                  maiores impedit.
+                </p>
+              </div>
+              <div
+                class="bg-bento-image2 bg-cover bg-center mx-auto my-5 h-full w-[90%] rounded-3xl flex flex-1 items-center justify-center px-8 max-lg:pb-20 max-lg:pt-10 sm:px-10 lg:pb-2"
+              >
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2"
+          >
+            <div class="absolute inset-px rounded-lg drop-shadow-lg bg-white">
+            </div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]"
+            >
+              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
+                <p
+                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center"
+                >
+                  Service #3
+                </p>
+                <p
+                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"
+                >
+                  Morbi viverra dui mi arcu sed. Tellus semper adipiscing
+                  suspendisse semper morbi.
+                </p>
+              </div>
+              <div
+                class="bg-bento-image1 bg-cover bg-center mx-auto my-5 h-full w-[90%] rounded-3xl flex flex-1 items-center justify-center px-8 max-lg:pb-20 max-lg:pt-10 sm:px-10 lg:pb-2"
+              >
+              </div>
+            </div>
+          </div>
+          <div class="relative lg:row-span-2">
+            <div
+              class="absolute inset-px rounded-lg drop-shadow-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"
+            >
+            </div>
+            <div
+              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]"
+            >
+              <div class="px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
+                <p
+                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center"
+                >
+                  Service #4
+                </p>
+                <p
+                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"
+                >
+                  Sit quis amet rutrum tellus ullamcorper ultricies libero dolor
+                  eget sem sodales gravida.
+                </p>
+              </div>
+              <div
+                class="bg-bento-image4 bg-cover bg-center relative min-h-[30rem] w-[90%] h-full grow rounded-3xl px-10 py-10 mx-auto my-5"
+              >
+              </div>
+            </div>
+            <div
+              class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
