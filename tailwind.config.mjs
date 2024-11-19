@@ -37,6 +37,21 @@ export default {
         "background-residential": "url('/residential.webp')",
       },
     },
+    animation: {
+      fade: "fade-in-up 1s ease-in-out 0.25s 1",
+    },
+    keyframes: {
+      "fade-in-up": {
+        "0%": {
+          opacity: 0,
+          transform: "translate3d(0, 100%, 0)",
+        },
+        "100%": {
+          opacity: 1,
+          transform: "translate3d(0,0,0)",
+        },
+      },
+    },
   },
   plugins: [],
 };
