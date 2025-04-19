@@ -1,8 +1,10 @@
 ---
-import { Header } from "../components/Header/Header.tsx";
 import Footer from "../sections/Footer.astro";
 import ToTopBottom from "../components/ToTopBottom.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import "@/styles/starwind.css";
+import Navbar from "@/sections/Navbar.astro";
+import CTA from "@/sections/CTA.astro";
 interface Props {
   title: string;
   description: string;
@@ -18,12 +20,16 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <title>{title}</title>
-  </head>
-  <body class="bg-gray-200">
+  </head><body class="">
     <SpeedInsights />
-    <Header client:load />
+    <Navbar />
     <slot />
+    <CTA />
     <Footer />
     <ToTopBottom />
   </body>
