@@ -182,7 +182,7 @@ import { residencialBenefits, residencialData } from "@/data/residencial/data";
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6">
             {
               residencialBenefits.map(({ number, name, description }) => (
-                <Card class="bg-white rounded-2xl p-6 drop-shadow-2xl">
+                <Card class="bg-white rounded-2xl p-6 drop-shadow-2xl relative">
                   <div class="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-lg shadow-lg scale-icon-on-hover">
                     {number}
                   </div>
