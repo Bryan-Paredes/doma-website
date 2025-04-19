@@ -1,0 +1,121 @@
+---
+import type { GalleryImage } from "@/data/galleryImages";
+
+const { images } = Astro.props;
+---
+
+<section class="gallery-container">
+  <div class="bento-grid" id="galleryGrid">
+    {
+      images.map(({ src, alt }: GalleryImage) => (
+        <img
+          src={src}
+          width={250}
+          height={150}
+          class="gallery-image"
+          loading="lazy"
+          decoding="async"
+          alt={alt}
+          data-src={src}
+        />
+      ))
+    }
+  </div>
+
+  <div id="overlay" class="overlay hidden">
+    <button id="closeBtn" class="close-btn">&times;</button>
+    <img id="overlayImg" src="" alt="Zoomed Image" class="overlay-img" />
+  </div>
+
+  <script is:inline>
+    const overlay = document.getElementById("overlay");
+    const overlayImg = document.getElementById("overlayImg");
+    const closeBtn = document.getElementById("closeBtn");
+    const gallery = document.getElementById("galleryGrid");
+
+    gallery.addEventListener("click", (e) => {
+      const img = e.target.closest("img.gallery-image");
+      if (!img) return;
+      const src = img.dataset.src;
+      overlayImg.src = src;
+      overlay.classList.remove("hidden");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      overlay.classList.add("hidden");
+      overlayImg.src = "";
+    });
+
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) {
+        overlay.classList.add("hidden");
+        overlayImg.src = "";
+      }
+    });
+  </script>
+</section>
+
+<style>
+  .gallery-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .gallery-image:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .overlay-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: transparent;
+    color: white;
+    font-size: 3rem;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+</style>

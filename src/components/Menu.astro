@@ -1,0 +1,38 @@
+---
+import { dataHeader } from "@/data/Header.data";
+---
+
+<nav class="hidden lg:flex gap-8 text-sm">
+  {
+    dataHeader.slice(1).map(({ name, href }, key) => (
+      <a
+        href={href}
+        class:list={[
+          "hover:text-blue-500 py-1 border-b-2 border-b-transparent transition hover:border-b-white font-clash text-lg uppercase",
+          "active:border-b-javascript",
+        ]}
+        id={`navdesk-link-${key}`}
+      >
+        {name}
+      </a>
+    ))
+  }
+</nav>
+
+<style>
+  .active {
+    border-bottom-color: #0694d6;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll('a[id^="navdesk-link-"]');
+    links.forEach((link) => {
+      link.addEventListener("click", function () {
+        links.forEach((l) => l.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
+</script>
