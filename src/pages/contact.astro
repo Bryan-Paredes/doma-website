@@ -1,10 +1,217 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import ContactForm from "../sections/ContactForm.astro";
+import { Clock, Mail, MapPin, Phone, Send } from "@lucide/astro";
+import Layout from "@/layouts/Layout.astro";
+import Form from "@/components/Form";
+import Badge from "@/components/ui/starwind/badge";
+import { Toaster } from "sonner";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/starwind/accordion";
+import { questions } from "@/data/questions";
 ---
 
-<main class="container">
+<main class="">
   <Layout title="Contact" description="Contact page">
-    <ContactForm />
+    <!-- <ContactForm /> -->
+    <div class="flex min-h-screen flex-col mx-auto">
+      <Toaster richColors />
+      <main>
+        {/* Hero Section */}
+        <section
+          class="flex items-center justify-center relative mt-32 text-center"
+        >
+          <div
+            class="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-white to-transparent z-30"
+          >
+          </div>
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-blue-500/20 z-0"
+          >
+          </div>
+          <div class="absolute inset-0 pattern-bg-large z-0"></div>
+          <div class="relative z-10 py-20 md:py-32 lg:py-40">
+            <div
+              class="flex gap-4 lg:gap-11 items-center justify-center max-w-4xl mx-auto"
+            >
+              <div class="flex flex-col items-center w-full space-y-6 p-6">
+                <Badge
+                  class="px-3 py-1 text-sm bg-teal-200 text-teal-900 rounded-full"
+                >
+                  Contact Us
+                </Badge>
+                <h1
+                  class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-pretty capitalize"
+                >
+                  We're here to <span
+                    class="bg-gradient-primary bg-clip-text text-transparent text-7xl"
+                    >help you</span
+                  >
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 max-w-xl">
+                  Contact us with any questions or to request personalized
+                  quotes for your cleaning needs
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"
+          >
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section class="py-20 md:py-32 px-7 max-w-6xl mx-auto">
+          <div class="">
+            <div class="grid gap-8 lg:grid-cols-2 lg:gap-16 items-start">
+              <div class="space-y-10">
+                <div class="space-y-6">
+                  <h2
+                    class="text-3xl md:text-4xl font-bold tracking-tight capitalize"
+                  >
+                    Get in <span class="text-gradient-primary">touch</span>
+                  </h2>
+                  <p class="text-lg text-slate-600">
+                    Contact us by phone, email, or visit our office
+                  </p>
+                </div>
+
+                <div
+                  class="flex flex-col w-full rounded-2xl p-6 shadow-xl items-start justify-center gap-5"
+                >
+                  <div class="flex items-center gap-5">
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-gradient-primary flex items-center justify-center flex-shrink-0"
+                    >
+                      <MapPin class="h-6 w-6 text-white" />
+                    </div>
+                    <p class="text-slate-600">
+                      123 Main Street, Suite 456
+                      <br />
+                      Miami, FL 33101
+                    </p>
+                  </div>
+                  <div class="flex items-center gap-5">
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-gradient-primary flex items-center justify-center flex-shrink-0"
+                    >
+                      <Phone class="h-6 w-6 text-white" />
+                    </div>
+
+                    <p class="text-slate-600">
+                      <a
+                        href="tel:+1234567890"
+                        class="hover:text-teal-600 transition-colors"
+                      >
+                        +1 (234) 567-890
+                      </a>
+                    </p>
+                  </div>
+                  <div class="flex items-center gap-5">
+                    <div
+                      class="w-12 h-12 rounded-2xl bg-gradient-primary flex items-center justify-center flex-shrink-0"
+                    >
+                      <Mail class="h-6 w-6 text-white" />
+                    </div>
+
+                    <p class="text-slate-600">
+                      <a
+                        href="mailto:info@domaclean.com"
+                        class="hover:text-teal-600 transition-colors"
+                      >
+                        info@domaclean.com
+                      </a>
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="relative rounded-2xl overflow-hidden shadow-xl h-[300px] md:h-[400px]"
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-blue-500/10"
+                  >
+                  </div>
+                  <div
+                    class="w-full h-full bg-slate-100 flex items-center justify-center"
+                  >
+                    <p class="text-slate-500 font-medium">Mapa de ubicación</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 relative overflow-hidden"
+              >
+                <div
+                  class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-teal-500/20 to-blue-500/20 rounded-bl-full"
+                >
+                </div>
+                <div
+                  class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-teal-500/20 to-blue-500/20 rounded-tr-full"
+                >
+                </div>
+
+                <div class="relative space-y-6">
+                  <div class="space-y-2">
+                    <h2 class="text-2xl font-bold tracking-tight">
+                      Send us a message
+                    </h2>
+                    <p class="text-slate-600">
+                      Complete the form below and we will contact you as soon as
+                      possible
+                    </p>
+                  </div>
+
+                  <Form client:visible />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section
+          class="py-20 md:py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden"
+        >
+          <div class="border-gradient-top"></div>
+          <div class="absolute inset-0 pattern-bg"></div>
+
+          <div class="container relative">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+              <Badge
+                class="px-3 py-1 text-sm bg-purple-100 hover:bg-purple-200 text-purple-800 rounded-full"
+              >
+                Frequently Asked Questions
+              </Badge>
+              <h2 class="text-3xl md:text-4xl font-bold tracking-tight">
+                Answers to your <span class="text-gradient-primary"
+                  >questions</span
+                >
+              </h2>
+              <p class="text-lg text-slate-600">
+                Answers to the most common questions about our services
+              </p>
+            </div>
+
+            <Accordion class="max-w-4xl mx-auto p-5">
+              {
+                questions.map(({ question, answer }, index) => (
+                  <AccordionItem value={`question-${index}`}>
+                    <AccordionTrigger>{question}</AccordionTrigger>
+                    <AccordionContent>
+                      <p class="text-slate-600">{answer}</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))
+              }
+            </Accordion>
+          </div>
+        </section>
+      </main>
+    </div>
   </Layout>
 </main>

@@ -1,162 +1,199 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { Card, CardContent } from "@/components/ui/starwind/card";
+import Layout from "@/layouts/Layout.astro";
+import { ArrowRight, Check } from "@lucide/astro";
+import { Image } from "astro:assets";
+import Gallery from "@/components/Gallery.astro";
+import { comercialGalleryImages } from "@/data/galleryImages";
+import { Badge } from "@/components/ui/starwind/badge";
+import { comercialData } from "@/data/comercial/data";
+import { comercialBenefits } from "@/data/comercial/data";
 ---
 
-<main class="container">
-  <Layout
-    title="Commercial Cleaning Services"
-    description="Your Partner in Creating a Clean, Productive Workplace"
-  >
-    <section class="p-5">
-      <h3
-        class="text-balance text-left text-4xl font-semibold tracking-tight my-10 text-gray-950 sm:text-5xl"
-      >
-        Commercial Cleaning Services
-      </h3>
-      <div
-        class="bg-background-commercial bg-cover bg-center w-full h-[460px] rounded-lg drop-shadow-md"
-      >
-      </div>
-      <div class="flex items-center justify-center -mt-12 text-center">
-        <p
-          class="bg-white/80 backdrop:blur p-10 m-6 flex items-start justify-centerm rounded-lg font-bold tracking-wide max-w-fit"
+<Layout
+  title="Commercial Cleaning Services"
+  description="Your Partner in Creating a Clean, Productive Workplace"
+>
+  <div class="mt-30">
+    <main>
+      {/* Hero Section */}
+      <section class="relative">
+        <div
+          class="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-white to-transparent z-30"
         >
-          In today’s business world, a clean and well-maintained workplace
-          speaks volumes about your brand and commitment to excellence. At Doma,
-          we provide top-notch commercial cleaning services tailored to meet the
-          demands of various industries. From offices to restaurants and retail
-          spaces, we ensure your business environment remains clean, safe, and
-          welcoming.
-        </p>
-      </div>
-      <iframe
-        title="Arrow Down Animation"
-        class="w-full h-16"
-        src="https://lottie.host/embed/322af980-cd5b-481d-8f98-9c3b83b5f6cf/hw4qtCQj33.json"
-        loading="eager"></iframe>
-      <div class="container my-6">
-        <h2
-          class="text-balance text-left text-4xl font-semibold tracking-tight my-10 text-gray-950 sm:text-5xl"
-        >
-          Our Services Include
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          <div
-            class="bg-white p-4 rounded-lg text-left drop-shadow-md hover:bg-primary-50"
-            id=""
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Office Cleaning
-            </h3>
-            <p class="text-base text-center">
-              From desktops to boardrooms, we maintain your workspace so
-              employees and visitors enjoy a clean, organized environment.
-            </p>
-          </div>
-          <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Restaurant Cleaning
-            </h3>
-            <p class="text-base text-center">
-              Comprehensive cleaning to maintain health standards and create a
-              pleasant dining experience, from kitchens to dining areas.
-            </p>
-          </div>
-          <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Retail Store Cleaning
-            </h3>
-            <p class="text-base text-center">
-              Keep your store looking its best with regular cleaning that
-              reflects the quality of your brand and products.
-            </p>
-          </div>
-          <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Post-Construction Cleaning
-            </h3>
-            <p class="text-base text-center">
-              Clear away dust and debris after renovations or construction
-              projects, leaving your space move-in ready.
-            </p>
-          </div>
         </div>
-      </div>
-      <div>
-        <h2
-          class="text-balance text-right text-4xl font-semibold tracking-tight my-10 text-gray-950 sm:text-5xl"
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-blue-500/20 z-0"
         >
-          Why Partner with Us?
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+        </div>
+        <div class="absolute inset-0 pattern-bg-large z-0"></div>
+        <div class="relative z-10 py-20 md:py-32 lg:py-40">
           <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
+            class="flex gap-4 lg:gap-11 items-center justify-center max-w-4xl mx-auto"
           >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Reliable & Flexible Scheduling
-            </h3>
-            <p class="text-base text-center">
-              We offer after-hours and weekend options to minimize disruptions
-              to your operations.
-            </p>
-          </div>
-          <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Specialized Services
-            </h3>
-            <p class="text-base text-center">
-              From floor care to sanitizing high-traffic areas, our services can
-              be customized to meet industry standards and regulations.
-            </p>
-          </div>
-          <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Experienced Professionals
-            </h3>
-            <p class="text-base text-center">
-              Our trained and vetted staff understand the unique needs of
-              commercial spaces and deliver results that meet your expectations.
-            </p>
-          </div>
-          <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Eco-Friendly Solutions
-            </h3>
-            <p class="text-base text-center">
-              Committed to sustainability, we use eco-friendly products and
-              methods that are safe for your employees and customers.
-            </p>
+            <div class="flex flex-col items-start w-full space-y-6 p-6">
+              <Badge
+                class="px-3 py-1 text-sm bg-teal-200 text-teal-900 rounded-full"
+              >
+                Commercial Services
+              </Badge>
+              <h1
+                class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-pretty capitalize"
+              >
+                Cleaning solutions for your <span
+                  class="bg-gradient-primary bg-clip-text text-transparent text-7xl"
+                  >Business</span
+                >
+              </h1>
+              <p class="text-lg md:text-xl text-slate-600 max-w-xl">
+                Keeping your commercial space spotless so you can focus on
+                growing your business. Customized services for all types of
+                establishments
+              </p>
+              <div class="flex items-center gap-4">
+                <a
+                  href="/contact"
+                  class="flex text-base font-medium items-center gap-2 bg-gradient-primary rounded-xl px-4 py-2 text-white hover:brightness-75 transition-all duration-200 hover:translate-x-2"
+                >
+                  Get a Quote
+                  <ArrowRight size={20} />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         <div
-          class="flex flex-col items-center justify-center mx-auto bg-white p-4 rounded-lg drop-shadow-md my-10 max-w-md"
+          class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"
         >
-          Book Your Free Consultation Let’s discuss your cleaning needs and
-          design a customized solution to keep your business at its best.
-          <br /><br />
-          <span class="font-semibold">Contact us today to get started!</span>
-          <div class="mt-10 mb-5">
-            <a
-              href="/contact"
-              class="bg-primary-700 py-2 px-4 text-white text-xl font-bold rounded-lg hover:bg-primary-500"
+        </div>
+      </section>
+
+      {/* Services Detail */}
+      <section class="py-20 md:py-32">
+        <div class="container">
+          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <Badge
+              class="px-3 py-1 text-sm bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-full"
             >
-              Contact Us
-            </a>
+              Our Services
+            </Badge>
+            <h2
+              class="text-3xl md:text-4xl font-bold tracking-tight capitalize"
+            >
+              <span class="bg-gradient-primary bg-clip-text text-transparent"
+                >Commercial</span
+              >
+              Cleaning Services
+            </h2>
+            <p class="text-lg text-slate-600">
+              We offer professional cleaning solutions for all types of
+              businesses and commercial establishments
+            </p>
+          </div>
+
+          <div class="grid max-w-5xl mx-auto p-6 gap-8 md:grid-cols-2">
+            {
+              comercialData.map(
+                ({ src, icon: Icon, name, label, description, list }) => (
+                  <Card class="group bg-white drop-shadow-2xl overflow-hidden rounded-2xl border-2">
+                    <div class="relative h-64">
+                      <Image
+                        src={src}
+                        alt="Limpieza de oficinas"
+                        width={600}
+                        height={400}
+                        class="object-cover object-center h-[270px] w-full"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                      <div class="absolute bottom-0 left-0 p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                          <Icon class="h-6 w-6 text-white" />
+                          <h3 class="text-2xl font-bold text-white">{name}</h3>
+                        </div>
+                        <p class="text-white/80">{label}</p>
+                      </div>
+                    </div>
+                    <CardContent class="p-6">
+                      <p class="text-slate-600 mb-4">{description}</p>
+                      <ul class="space-y-2 mb-6">
+                        {list.map((item) => (
+                          <li class="flex items-center gap-2">
+                            <div class="rounded-full bg-blue-100 p-1">
+                              <Check class="h-3 w-3 text-blue-600" />
+                            </div>
+                            <span class="text-slate-600">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )
+              )
+            }
           </div>
         </div>
-      </div>
-    </section>
-  </Layout>
-</main>
+      </section>
+
+      <section>
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <Badge
+            class="px-3 py-1 text-sm bg-teal-100 hover:bg-teal-200 text-teal-800 rounded-full"
+          >
+            Images of Commercial Cleaning
+          </Badge>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight capitalize">
+            Our Work in
+            <span class="bg-gradient-primary bg-clip-text text-transparent"
+              >Images</span
+            >
+          </h2>
+          <p class="text-lg text-slate-600">
+            A selection of images that show the quality and commitment of our
+            service
+          </p>
+        </div>
+        <Gallery images={comercialGalleryImages} />
+      </section>
+
+      {/* Benefits Section */}
+      <section
+        class="py-20 md:py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden"
+      >
+        <div class="container relative">
+          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <Badge
+              class="px-3 py-1 text-sm bg-teal-100 hover:bg-teal-200 text-teal-800 rounded-full"
+            >
+              Benefits
+            </Badge>
+            <h2
+              class="text-3xl md:text-4xl font-bold tracking-tight capitalize"
+            >
+              <span class="bg-gradient-primary bg-clip-text text-transparent"
+                >Advantages</span
+              > of our commercial services
+            </h2>
+            <p class="text-lg text-slate-600">
+              Descubra por qué las empresas confían en Doma Clean para sus
+              necesidades de limpieza.
+            </p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 p-4">
+            {
+              comercialBenefits.map(({ icon: Icon, name, description }) => (
+                <Card class="rounded-2xl p-8 drop-shadow-2xl group">
+                  <div class="w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mb-6 hover:scale-105 transition-transform text-white">
+                    <Icon size={30} />
+                  </div>
+                  <h3 class="text-xl font-bold mb-3">{name}</h3>
+                  <p class="text-slate-600">{description}</p>
+                </Card>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</Layout>

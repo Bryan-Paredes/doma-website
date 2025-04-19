@@ -1,23 +1,19 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import About from "../sections/About.astro";
-import Hero from "../sections/Hero.astro";
-import InfoCard from "../sections/InfoCard.astro";
-import PreFooter from "../sections/PreFooter.astro";
-import Services from "../sections/Services.astro";
+import Layout from "@/layouts/Layout.astro";
+import About from "@/sections/About.astro";
+import Hero from "@/sections/Hero.astro";
+import Services from "@/sections/Services.astro";
+import Testimonial from "@/sections/Testimonial.astro";
 ---
 
 <Layout
   title="Doma Cleaning Services"
   description="Cleaning services for your home and business"
 >
-  <main class="container p-4">
+  <main>
     <Hero />
-    <InfoCard />
     <About />
     <Services />
-    <PreFooter />
+    <Testimonial />
   </main>
 </Layout>
-
-<style></style>

@@ -1,152 +1,201 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { Card, CardContent } from "@/components/ui/starwind/card";
+import Layout from "@/layouts/Layout.astro";
+import { ArrowRight, Check } from "@lucide/astro";
+import { Image } from "astro:assets";
+import Gallery from "@/components/Gallery.astro";
+import { residencialGalleryImages } from "@/data/galleryImages";
+import { Badge } from "@/components/ui/starwind/badge";
+import { residencialBenefits, residencialData } from "@/data/residencial/data";
 ---
 
-<main class="container">
-  <Layout
-    title="Residential Cleaning Services"
-    description="Transforming Your Home into a Clean and Inviting Space"
-  >
-    <section class="p-5">
-      <h3
-        class="text-balance text-left text-4xl font-semibold tracking-tight my-10 text-gray-950 sm:text-5xl"
-      >
-        Residential Cleaning Services
-      </h3>
-      <div
-        class="bg-background-residential bg-cover bg-no-repeat bg-top w-full h-[460px] rounded-lg drop-shadow-md"
-      >
-      </div>
-      <div class="flex items-center justify-center -mt-12 text-center">
-        <p
-          class="bg-white/80 backdrop:blur p-10 m-6 flex items-start justify-centerm rounded-lg font-bold tracking-wide max-w-fit"
+<Layout
+  title="Commercial Cleaning Services"
+  description="Your Partner in Creating a Clean, Productive Workplace"
+>
+  <div class="mt-30">
+    <main>
+      {/* Hero Section */}
+      <section class="relative">
+        <div
+          class="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-white to-transparent z-30"
         >
-          At Doma, we understand that a clean home is essential to a happy and
-          healthy life. Our residential cleaning services are designed to keep
-          your living spaces pristine, fresh, and inviting, providing you with
-          peace of mind and more time to focus on what matters most. Whether you
-          need a one-time deep clean, regular maintenance, or specialized
-          services, we’re here to help.
-        </p>
-      </div>
-      <iframe
-        title="Arrow Down Animation"
-        class="w-full h-16"
-        src="https://lottie.host/embed/322af980-cd5b-481d-8f98-9c3b83b5f6cf/hw4qtCQj33.json"
-        loading="eager"></iframe>
-      <div class="container my-6">
-        <h2
-          class="text-balance text-left text-4xl font-semibold tracking-tight my-10 text-gray-950 sm:text-5xl"
-        >
-          Our Services Include
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          <div
-            class="bg-white p-4 rounded-lg text-left drop-shadow-md hover:bg-primary-50"
-            id=""
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Deep Cleaning
-            </h3>
-            <p class="text-base text-center">
-              We go beyond the basics to tackle hidden dust, grime, and stains,
-              refreshing every corner of your home.
-            </p>
-          </div>
-          <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Routine Maintenance
-            </h3>
-            <p class="text-base text-center">
-              Weekly, bi-weekly, or monthly cleaning tailored to fit your
-              schedule and ensure your home always feels clean.
-            </p>
-          </div>
-          <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Move-In & Move-Out Cleaning
-            </h3>
-            <p class="text-base text-center">
-              Simplify your transition with comprehensive cleaning services to
-              leave your old place spotless and prepare your new home for a
-              fresh start.
-            </p>
-          </div>
-          <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Specialty Cleaning
-            </h3>
-            <p class="text-base text-center">
-              Customizable options, including carpet cleaning, window washing,
-              and more.
-            </p>
-          </div>
         </div>
-      </div>
-      <div>
-        <h2
-          class="text-balance text-right text-4xl font-semibold tracking-tight my-10 text-gray-950 sm:text-5xl"
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-blue-500/20 z-0"
         >
-          Why Partner with Us?
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3">
+        </div>
+        <div class="absolute inset-0 pattern-bg-large z-0"></div>
+        <div class="relative z-10 py-20 md:py-32 lg:py-40">
           <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
+            class="flex gap-4 lg:gap-11 items-center justify-center max-w-4xl mx-auto"
           >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Professional & Trusted Staff
-            </h3>
-            <p class="text-base text-center">
-              Our team is trained, experienced, and background-checked to ensure
-              the best service and your peace of mind.
-            </p>
-          </div>
-          <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Eco-Friendly Products
-            </h3>
-            <p class="text-base text-center">
-              We prioritize the health of your family and pets by using safe,
-              environmentally friendly cleaning products.
-            </p>
-          </div>
-          <div
-            class="bg-white p-4 rounded-lg drop-shadow-md hover:bg-primary-50"
-          >
-            <h3 class="text-xl font-bold text-center my-5 text-primary-600">
-              Attention to Detail
-            </h3>
-            <p class="text-base text-center">
-              Every home is unique, and we take time to understand your needs,
-              providing tailored cleaning that meets your standards.
-            </p>
+            <div class="flex flex-col items-start w-full space-y-6 p-6">
+              <Badge
+                class="px-3 py-1 text-sm bg-teal-200 text-teal-900 rounded-full"
+              >
+                Residential Services
+              </Badge>
+              <h1
+                class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-pretty capitalize"
+              >
+                Professional Cleaning For Your <span
+                  class="bg-gradient-primary bg-clip-text text-transparent text-7xl"
+                  >Home</span
+                >
+              </h1>
+              <p class="text-lg md:text-xl text-slate-600 max-w-xl">
+                We transform your home with professional and personalized
+                cleaning services. Enjoy a clean and healthy environment without
+                worries
+              </p>
+              <div class="flex items-center gap-4">
+                <a
+                  href="/contact"
+                  class="flex text-base font-medium items-center gap-2 bg-gradient-primary rounded-xl px-4 py-2 text-white hover:brightness-75 transition-all duration-200 hover:translate-x-2"
+                >
+                  Get a Quote
+                  <ArrowRight size={20} />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         <div
-          class="flex flex-col items-center justify-center mx-auto bg-white p-4 rounded-lg drop-shadow-md my-10 max-w-md"
+          class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"
         >
-          Ready to enjoy a sparkling clean home? Reach out for a free
-          consultation, and let us take care of your cleaning needs.
-          <br /><br />
-          <span class="font-semibold">Contact us today to get started!</span>
-          <div class="mt-10 mb-5">
-            <a
-              href="/contact"
-              class="bg-primary-700 py-2 px-4 text-white text-xl font-bold rounded-lg hover:bg-primary-500"
+        </div>
+      </section>
+
+      {/* Services Detail */}
+      <section class="py-20 md:py-32">
+        <div class="container">
+          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <Badge
+              class="px-3 py-1 text-sm bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-full"
             >
-              Contact Us
-            </a>
+              Our Services
+            </Badge>
+            <h2
+              class="text-3xl md:text-4xl font-bold tracking-tight capitalize"
+            >
+              <span class="bg-gradient-primary bg-clip-text text-transparent"
+                >Commercial</span
+              >
+              Cleaning Services
+            </h2>
+            <p class="text-lg text-slate-600">
+              We offer professional cleaning solutions for all types of
+              businesses and commercial establishments
+            </p>
+          </div>
+
+          <div class="grid max-w-5xl mx-auto p-6 gap-8 md:grid-cols-2">
+            {
+              residencialData.map(
+                ({ src, icon: Icon, name, label, description, list }) => (
+                  <Card class="group bg-white drop-shadow-2xl overflow-hidden rounded-2xl border-2">
+                    <div class="relative h-64">
+                      <Image
+                        src={src}
+                        alt="Limpieza de oficinas"
+                        width={600}
+                        height={400}
+                        class="object-cover object-center h-[270px] w-full"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                      <div class="absolute bottom-0 left-0 p-6">
+                        <div class="flex items-center gap-2 mb-2">
+                          <Icon size={30} class=" text-white" />
+                          <h3 class="text-2xl font-bold text-white">{name}</h3>
+                        </div>
+                        <p class="text-white/80">{label}</p>
+                      </div>
+                    </div>
+                    <CardContent class="p-6">
+                      <p class="text-slate-600 mb-4">{description}</p>
+                      <ul class="space-y-2 mb-6">
+                        {list.map((item) => (
+                          <li class="flex items-center gap-2">
+                            <div class="rounded-full bg-blue-100 p-1">
+                              <Check class="h-3 w-3 text-blue-600" />
+                            </div>
+                            <span class="text-slate-600">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )
+              )
+            }
           </div>
         </div>
-      </div>
-    </section>
-  </Layout>
-</main>
+      </section>
+
+      <section>
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <Badge
+            class="px-3 py-1 text-sm bg-teal-100 hover:bg-teal-200 text-teal-800 rounded-full"
+          >
+            Images of Residential Cleaning
+          </Badge>
+          <h2 class="text-3xl md:text-4xl font-bold tracking-tight capitalize">
+            Our Work in
+            <span class="bg-gradient-primary bg-clip-text text-transparent"
+              >Images</span
+            >
+          </h2>
+          <p class="text-lg text-slate-600">
+            A selection of images that show the quality and commitment of our
+            service
+          </p>
+        </div>
+        <Gallery images={residencialGalleryImages} />
+      </section>
+
+      {/* Benefits Section */}
+      <section
+        class="py-20 md:py-32 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden"
+      >
+        <div class="container relative">
+          <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <Badge
+              class="px-3 py-1 text-sm bg-teal-100 hover:bg-teal-200 text-teal-800 rounded-full"
+            >
+              Our Process
+            </Badge>
+            <h2
+              class="text-3xl md:text-4xl font-bold tracking-tight capitalize"
+            >
+              Who We
+              <span class="bg-gradient-primary bg-clip-text text-transparent"
+                >Work</span
+              >
+            </h2>
+            <p class="text-lg text-slate-600">
+              This is how we work to ensure exceptional service and impeccable
+              results
+            </p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 px-6">
+            {
+              residencialBenefits.map(({ number, name, description }) => (
+                <Card class="bg-white rounded-2xl p-6 drop-shadow-2xl">
+                  <div class="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center text-white font-bold text-lg shadow-lg scale-icon-on-hover">
+                    {number}
+                  </div>
+                  <div class="pt-6">
+                    <h3 class="text-xl font-bold mb-3">{name}</h3>
+                    <p class="text-slate-600">{description}</p>
+                  </div>
+                </Card>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</Layout>
