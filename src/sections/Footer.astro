@@ -1,69 +1,85 @@
 ---
-import { dataHeader } from "../components/Header/Header.data";
-import { socialItems } from "../components/social-item";
+import { dataHeader, socialMedia } from "@/data/Header.data";
+import { Mail, MapPin, Phone } from "@lucide/astro";
+import { Image } from "astro:assets";
+
+const date = new Date();
+const year = date.getFullYear();
+const copyright = `${year} Doma Clean All rights reserved`;
 ---
 
-<footer class="container text-center">
-  <div class="grid lg:grid-cols-3 items-start justify-center p-10 gap-5">
-    <div class="flex items-center justify-center my-auto">
-      <img src="/LOGO.webp" alt="LOGO DOMA" class="w-24 h-24" loading="lazy" />
-    </div>
-    <div class="flex flex-col items-center lg:items-start justify-center gap-3">
-      <h5 class="text-lg text-left text-primary-600 font-bold">Social</h5>
-      <div>
-        <ul class="flex gap-3">
+<footer class="max-w-7xl mx-auto">
+  <div class="px-20 py-16 md:py-20 relative">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex flex-col items-center gap-4">
+        <Image src="/LOGO.webp" alt="LOGO DOMA" width={100} height={100} />
+
+        <div class="flex gap-4">
           {
-            socialItems.map((item) => (
-              <li class="hover:text-primary-500 transition-all duration-200 ease-in-out">
+            socialMedia.map(({ name, href, icon: Icon }) => (
+              <a
+                href={href}
+                class="text-white hover:animate-jelly transition-colors"
+              >
+                <div class="p-2 rounded-full bg-gradient-primary transition-colors">
+                  <Icon class="h-5 w-5" />
+                </div>
+                <span class="sr-only">{name}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <ul class="hidden md:flex flex-col lg:flex-row gap-3 text-center">
+          {
+            dataHeader.map(({ name, href }) => (
+              <li>
                 <a
-                  class="flex items-center justify-center gap-1"
-                  href={item.href}
+                  href={href}
+                  class="text-base text-black hover:text-blue-500 transition-colors"
                 >
-                  <img src={item.icon} alt={item.name} loading="lazy" />
-                  {item.name}
+                  {name}
                 </a>
               </li>
             ))
           }
         </ul>
       </div>
-      <h5 class="text-lg text-left text-primary-600 font-bold">Pages</h5>
-      <div>
-        <ul class="flex gap-3">
-          {
-            dataHeader.map((item) => (
-              <li class="hover:border-b-2 border-b-primary-500 hover:text-gray-500">
-                <a class="" href={item.href}>
-                  {item.name}
-                </a>
-              </li>
-            ))
-          }
+
+      <div class="">
+        <ul class="flex flex-col items-center gap-3 text-base">
+          <li>
+            <a
+              href="tel:+1234567890"
+              class="hover:text-blue-500 transition-colors flex items-center gap-2 text-center"
+            >
+              <Phone size={20} />
+              <p>+1 (234) 567-890</p>
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:info@domaclean.com"
+              class="hover:text-blue-500 transition-colors flex items-center gap-2 text-center"
+            >
+              <Mail size={20} />
+              <p>info@domaclean.com</p>
+            </a>
+          </li>
+          <li class="flex items-center gap-2">
+            <MapPin size={20} />
+            <p>123 Main Street, FL 33101</p>
+          </li>
         </ul>
       </div>
     </div>
-    <div class="flex flex-col gap-3 items-center justify-center">
-      <h5 class="text-lg text-primary-600 font-bold">Information</h5>
-      <p>mailkit@example.com</p>
-      <p class="max-w-[200px] text-left text-gray-500">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, quidem
+
+    <div class="mt-16 pt-8 border-t border-teal-600 text-center text-base">
+      <p>
+        &copy; {copyright}
       </p>
     </div>
   </div>
-  <hr class="border-gray-700 w-full" />
-  <div class="flex items-center justify-center gap-5 p-10">
-    <p>
-      &copy; <span id="date"></span> All rights reserved.
-    </p>
-  </div>
 </footer>
-
-<script>
-  function loadDate() {
-    const $date = new Date();
-    document.getElementById("date").textContent = $date
-      .getFullYear()
-      .toString();
-  }
-  window.onload = loadDate;
-</script>

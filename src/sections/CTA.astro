@@ -1,0 +1,47 @@
+---
+import { ArrowRight, PhoneCall } from "@lucide/astro";
+---
+
+<section class="py-20 md:py-32 relative rounded-2xl animate-fade-in">
+  <div
+    class="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-white to-transparent z-30"
+  >
+  </div>
+  <div class="absolute inset-0 bg-gradient-primary opacity-90"></div>
+  <div class="absolute inset-0 pattern-bg-large"></div>
+  <div class="container relative z-10">
+    <div class="max-w-3xl mx-auto text-center space-y-8">
+      <h2
+        class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white"
+      >
+        Ready to transform your space?
+      </h2>
+      <p class="text-xl text-white/80">
+        Contact us today for a free quote and find out how we can help you with
+        your cleaning needs.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/contact">
+          <button
+            class="rounded-xl px-6 py-2 gap-2 flex items-center bg-white text-teal-600 hover:bg-white/10 border-3 border-white hover:bg-gradient-primary hover:text-white transition-all hover:border-transparent hover:scale-110"
+          >
+            Get a Quote
+            <ArrowRight size={20} />
+          </button>
+        </a>
+        <a href="tel:+1234567890">
+          <button
+            class="rounded-xl px-6 py-2 flex items-center gap-2 text-white hover:bg-white hover:text-teal-600 border-3 border-white transition-colors"
+          >
+            <PhoneCall size={20} />
+            Call Today
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white to-transparent"
+  >
+  </div>
+</section>

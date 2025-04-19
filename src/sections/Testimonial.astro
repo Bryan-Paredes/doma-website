@@ -1,0 +1,128 @@
+---
+import Badge from "@/components/ui/starwind/badge";
+import { MessageCircleDashed, Star } from "@lucide/astro";
+import { Image } from "astro:assets";
+import { testimonials, type Testimonial } from "@/data/testimonials";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/starwind/card";
+import Comment from "@/assets/comment.svg";
+---
+
+<section class="py-20 md:py-32">
+  <div class="p-5">
+    <div class="text-left max-w-3xl mx-auto mb-16 space-y-4">
+      <Badge
+        class="px-3 py-1 text-sm bg-purple-100 hover:bg-purple-200 text-purple-800 rounded-full"
+      >
+        Testimonials
+      </Badge>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">
+        What our <span class="text-gradient-primary">customers</span> say
+      </h2>
+      <p class="text-lg text-slate-600">
+        Find out why our customers trust us for their cleaning needs
+      </p>
+    </div>
+
+    <swiper-container
+      class="mySwiper w-full md:w-3xl h-96 mx-auto my-10 p-3"
+      pagination="true"
+      pagination-clickable="true"
+      space-between="20"
+      slides-per-view="1"
+    >
+      {
+        testimonials.map(({ star, description, src, name }: Testimonial) => (
+          <swiper-slide>
+            <Card class="drop-shadow-xl">
+              <div class="absolute top-0 right-0 bg-gradient-primary rounded-full p-2 shadow-lg text-white z-30">
+                <Comment class="h-7 w-7 text-whiite" />
+              </div>
+              <CardHeader class="">
+                <div class="flex items-center gap-2">
+                  {[...Array(star)].map((_, i) => (
+                    <Star class="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                  <span class="text-sm text-slate-600">{star}</span>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  <p class="text-slate-600 mb-6">{description}</p>
+                </CardDescription>
+              </CardContent>
+              <CardFooter>
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
+                    <Image
+                      src={src}
+                      alt="Cliente"
+                      width={50}
+                      height={50}
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 class="font-bold">{name}</h4>
+                    <p class="text-sm text-slate-500">Cliente Residencial</p>
+                  </div>
+                </div>
+              </CardFooter>
+            </Card>
+          </swiper-slide>
+        ))
+      }
+    </swiper-container>
+  </div>
+</section>
+
+<style>
+  html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+
+  body {
+    background: #eee;
+    font-family:
+      Helvetica Neue,
+      Helvetica,
+      Arial,
+      sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"
+></script>

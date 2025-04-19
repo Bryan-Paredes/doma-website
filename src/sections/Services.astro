@@ -1,155 +1,114 @@
 ---
+import Badge from "@/components/ui/starwind/badge";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/starwind/card";
+import { ArrowRight, Check, House } from "@lucide/astro";
 import { Image } from "astro:assets";
-import TiquetButton from "../components/TiquetButton.astro";
-import bentoImage3 from "../../public/bento/BentoImage3.webp";
+import { serviceList, type Service } from "@/data/services";
+
+const bgMap = {
+  teal: "bg-teal-200 hover:bg-teal-600",
+  blue: "bg-blue-200 hover:bg-blue-600",
+  purple: "bg-purple-200 hover:bg-purple-600",
+  yellow: "bg-yellow-200 hover:bg-yellow-600",
+};
+
+const colorMap = {
+  teal: "text-teal-700",
+  blue: "text-blue-800",
+  purple: "text-purple-800",
+  yellow: "text-yellow-600",
+};
 ---
 
-<main class="container text-center" id="services">
-  <section>
-    <div class="py-10 sm:py-14 rounded-xl">
-      <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <div class="flex flex-col items-start justify-center gap-5">
-          <TiquetButton title="Services" />
-          <h3
-            class="text-balance text-left text-4xl font-semibold tracking-tight text-gray-950 sm:text-5xl"
-          >
-            Everything you need to clean
-          </h3>
-        </div>
-        <div class="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
-          <div class="relative lg:row-span-2">
-            <div
-              class="absolute inset-px rounded-lg bg-white drop-shadow-lg lg:rounded-l-[2rem]"
-            >
-            </div>
-            <div
-              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-l-[calc(2rem+1px)]"
-            >
-              <div class="px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
-                <p
-                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center"
-                >
-                  Service #1
-                </p>
-                <p
-                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"
-                >
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-                  qui lorem cupidatat commodo.
-                </p>
-              </div>
-              <div
-                class="relative min-h-[30rem] w-full grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm"
-              >
-                <div
-                  class="absolute inset-x-10 bottom-0 top-10 overflow-hidden rounded-t-[12cqw] border-x-[3cqw] border-t-[3cqw] border-gray-700 bg-gray-900 shadow-2xl"
-                >
-                  <!-- <Image
-                    class="size-full object-cover object-center"
-                    src={bentoImage3}
-                    alt=""
-                  /> -->
-                  <img
-                    src="/bento/BentoImage3.webp"
-                    alt="BentoImage3"
-                    class="w-full h-full object-cover object-center"
+<section class="py-20 md:py-32" id="services">
+  <div class="">
+    <div
+      class="flex flex-col items-center text-center gap-3 max-w-3xl mx-auto mb-16 p-6"
+    >
+      <Badge
+        class="px-3 py-1 text-base bg-teal-100 hover:bg-teal-200 text-teal-800 rounded-full"
+      >
+        Our Services
+      </Badge>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-left">
+        <span class="text-gradient-primary">Customized</span> cleaning solutions
+      </h2>
+      <p class="text-lg text-slate-600 text-center text-balance">
+        We offer customized cleaning services for homes and businesses with the
+        highest quality standards
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-4 max-w-5xl mx-auto">
+      {
+        serviceList.map(
+          ({
+            src,
+            title,
+            description,
+            list,
+            link,
+            icon: Icon,
+            color,
+          }: Service) => (
+            <Card class="flex flex-col items-center justify-between rounded-2xl shadow-xl">
+              <div class="absolute inset-0 bg-gradient-to-br from-teal-300/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <CardHeader class="p-1 w-full">
+                <div class="rounded-xl">
+                  <Image
+                    src={src}
+                    alt="Limpieza residencial"
+                    width={500}
+                    height={500}
+                    decoding="async"
                     loading="lazy"
+                    class="w-full h-60 object-cover object-center rounded-t-xl brightness-75"
                   />
                 </div>
-              </div>
-            </div>
-            <div
-              class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-l-[2rem]"
-            >
-            </div>
-          </div>
-          <div class="relative max-lg:row-start-1">
-            <div
-              class="absolute inset-px rounded-lg bg-white drop-shadow-lg max-lg:rounded-t-[2rem]"
-            >
-            </div>
-            <div
-              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]"
-            >
-              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-                <p
-                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center"
-                >
-                  Serice #2
-                </p>
-                <p
-                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"
-                >
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit
-                  maiores impedit.
-                </p>
-              </div>
-              <div
-                class="bg-bento-image2 bg-cover bg-center mx-auto my-5 h-full w-[90%] rounded-3xl flex flex-1 items-center justify-center px-8 max-lg:pb-20 max-lg:pt-10 sm:px-10 lg:pb-2"
-              >
-              </div>
-            </div>
-          </div>
-          <div
-            class="relative max-lg:row-start-3 lg:col-start-2 lg:row-start-2"
-          >
-            <div class="absolute inset-px rounded-lg drop-shadow-lg bg-white">
-            </div>
-            <div
-              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]"
-            >
-              <div class="px-8 pt-8 sm:px-10 sm:pt-10">
-                <p
-                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center"
-                >
-                  Service #3
-                </p>
-                <p
-                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"
-                >
-                  Morbi viverra dui mi arcu sed. Tellus semper adipiscing
-                  suspendisse semper morbi.
-                </p>
-              </div>
-              <div
-                class="bg-bento-image1 bg-cover bg-center mx-auto my-5 h-full w-[90%] rounded-3xl flex flex-1 items-center justify-center px-8 max-lg:pb-20 max-lg:pt-10 sm:px-10 lg:pb-2"
-              >
-              </div>
-            </div>
-          </div>
-          <div class="relative lg:row-span-2">
-            <div
-              class="absolute inset-px rounded-lg drop-shadow-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"
-            >
-            </div>
-            <div
-              class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-r-[calc(2rem+1px)]"
-            >
-              <div class="px-8 pb-3 pt-8 sm:px-10 sm:pb-0 sm:pt-10">
-                <p
-                  class="mt-2 text-lg font-medium tracking-tight text-gray-950 max-lg:text-center"
-                >
-                  Service #4
-                </p>
-                <p
-                  class="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center"
-                >
-                  Sit quis amet rutrum tellus ullamcorper ultricies libero dolor
-                  eget sem sodales gravida.
-                </p>
-              </div>
-              <div
-                class="bg-bento-image4 bg-cover bg-center relative min-h-[30rem] w-[90%] h-full grow rounded-3xl px-10 py-10 mx-auto my-5"
-              >
-              </div>
-            </div>
-            <div
-              class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-r-[2rem]"
-            >
-            </div>
-          </div>
-        </div>
-      </div>
+              </CardHeader>
+              <CardContent class="p-6 space-y-4">
+                <CardTitle class="flex items-center gap-3">
+                  <div class={`p-2 rounded-full ${bgMap[color]}`}>
+                    <Icon size={25} class={`${colorMap[color]} `} />
+                  </div>
+                  <h3 class="text-xl font-bold">{title}</h3>
+                </CardTitle>
+                <CardDescription class="text-slate-600">
+                  <p>{description}</p>
+
+                  <ul class="space-y-2 my-4">
+                    {list.map((item: string) => (
+                      <li class="flex items-center gap-2">
+                        <Check class="h-4 w-4 text-teal-600" />
+                        <span class="text-sm text-slate-600">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardDescription>
+                <div>
+                  {link && (
+                    <a href={link}>
+                      <button
+                        class={`flex items-center gap-2 px-6 py-2 rounded-xl hover:${bgMap[color]} ${colorMap[color]} transition-colors duration-200 ease-in-out cursor-pointer hover:text-white`}
+                      >
+                        See Details
+                        <ArrowRight size={20} />
+                      </button>
+                    </a>
+                  )}
+                </div>
+              </CardContent>
+            </Card>
+          )
+        )
+      }
     </div>
-  </section>
-</main>
+  </div>
+</section>

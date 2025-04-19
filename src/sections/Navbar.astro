@@ -1,0 +1,169 @@
+---
+import { dataHeader } from "@/data/Header.data";
+import { Image } from "astro:assets";
+import { MenuIcon, Send, XIcon } from "@lucide/astro";
+import { MOBILE_MENU_CONTENT_ID } from "@/consts/mobile-menu";
+import Menu from "@/components/Menu.astro";
+---
+
+<header
+  class="py-6 z-[999] fixed top-0 left-0 right-0 bg-transparent transition-colors duration-300 px-section"
+>
+  <div class="flex gap-4 justify-between items-center max-w-6xl mx-auto px-8">
+    <a href="/" class="flex gap-x-3 items-center">
+      <Image
+        src={"/LOGO.webp"}
+        width={100}
+        height={100}
+        alt="logo"
+        loading="eager"
+        class="w-20 h-15 object-cover"
+      />
+    </a>
+    <div class="text-black">
+      <Menu />
+    </div>
+    <div class="hidden lg:flex items-center gap-4 cursor-pointer">
+      <a href="/contact">
+        <button
+          class="px-6 py-2 rounded-xl border-2 bg-gradient-primary hover-gradient-primary text-white font-medium text-base transition-colors flex items-center gap-2 uppercase"
+        >
+          Contact
+          <Send size={20} stroke-width={2.5} />
+        </button>
+      </a>
+    </div>
+    <div
+      class="flex lg:hidden items-center gap-4 cursor-pointer bg-gradient-primary rounded-full p-2 text-white"
+      id="menuButton"
+    >
+      <MenuIcon size={25} stroke-width={2.5} />
+    </div>
+    <div
+      class="fixed inset-0 z-[888] flex w-screen h-[100dvh] flex-col items-center overflow-x-auto lg:hidden backdrop-blur-2xl bg-white/80"
+      id={MOBILE_MENU_CONTENT_ID}
+    >
+      <aside
+        class="flex absolute top-8 right-8 w-fit items-end justify-end cursor-pointer text-white bg-gradient-primary rounded-full p-2"
+        id="innerMenuButton"
+      >
+        <XIcon size={25} stroke-width={2.5} />
+      </aside>
+      <nav
+        class="navContent bg-white flex w-full h-full flex-col items-start justify-end px-6 gap-5 mb-10"
+      >
+        {
+          dataHeader.map(({ name, href }, key) => (
+            <>
+              <a
+                href={href}
+                class:list={[
+                  "text-black hover:text-blue-500 text-5xl font-medium",
+                ]}
+                id={`navmob-link-${key}`}
+              >
+                {name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()}
+              </a>
+            </>
+          ))
+        }
+        <a
+          href="/contact"
+          class="text-white bg-gradient-primary hover-gradient-primary px-20 py-3 rounded-xl text-4xl"
+        >
+          Contact
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+<style>
+  #menuMobileContent {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    scrollbar-gutter: stable;
+  }
+
+  #menuMobileContent.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @media (prefers-reduced-motion) {
+    #menuMobileContent {
+      transition: opacity 0s;
+    }
+    header {
+      transition: none;
+    }
+  }
+</style>
+<script>
+  function toggleMenu(
+    nav: HTMLElement | null,
+    menuMobileContent: HTMLElement | null,
+    innerMenuButton: HTMLElement | null
+  ) {
+    menuMobileContent?.classList.toggle("open");
+    nav?.classList.toggle("open");
+    innerMenuButton?.classList.toggle("open");
+    document.body.classList.toggle("overflow-hidden");
+    document.body.classList.toggle("lg:overflow-auto");
+  }
+
+  function headerBgTransition() {
+    const header = document.querySelector("header") as HTMLElement;
+    if (window.scrollY > 10) {
+      header.classList.add("bg-white/50", "backdrop-blur-xl", "shadow-lg");
+      header.classList.remove("bg-transparent");
+    } else {
+      header.classList.add("bg-transparent");
+      header.classList.remove("bg-black/50", "backdrop-blur-xl", "shadow-lg");
+    }
+  }
+
+  window.addEventListener("scroll", () => {
+    headerBgTransition();
+  });
+
+  window.onload = () => {
+    headerBgTransition(); // if the user relaods the page, to check if the header should be transparent or not
+
+    const nav = document.querySelector("nav") as HTMLElement;
+    const menuButton = document.querySelector("#menuButton") as HTMLElement;
+    const innerMenuButton = document.querySelector(
+      "#innerMenuButton"
+    ) as HTMLElement;
+    const menuMobileContext = document.getElementById(
+      "menuMobileContent"
+    ) as HTMLElement;
+
+    const linksMobile: NodeListOf<HTMLAnchorElement> =
+      document.querySelectorAll('a[id^="navmob-link-"]');
+
+    function handleLinkClick(isMobile: boolean) {
+      if (isMobile) {
+        toggleMenu(nav, menuMobileContext, innerMenuButton);
+        menuButton.classList.toggle("hidden");
+      }
+    }
+
+    linksMobile.forEach((link) => {
+      link.addEventListener("click", () => handleLinkClick(true));
+    });
+
+    menuButton?.addEventListener("click", () => {
+      menuButton?.classList.toggle("hidden");
+      toggleMenu(nav, menuMobileContext, innerMenuButton);
+    });
+    innerMenuButton?.addEventListener("click", () => {
+      menuButton?.classList.toggle("hidden");
+      toggleMenu(nav, menuMobileContext, innerMenuButton);
+    });
+
+    if (menuMobileContext?.classList.contains("open")) {
+      toggleMenu(nav, menuMobileContext, innerMenuButton);
+    }
+  };
+</script>
