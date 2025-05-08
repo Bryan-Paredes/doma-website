@@ -122,7 +122,7 @@ export default function From() {
       </form>
       <div>
         <p className="text-gray-600 text-left text-base max-w-md">
-          By clicking Submit, you agree to COMPANY processing your personal data
+          By clicking Submit, you agree to DOMA processing your personal data
           for the information request
         </p>
       </div>
