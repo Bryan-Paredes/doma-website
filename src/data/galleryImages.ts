@@ -7,19 +7,23 @@ export interface GalleryImage {
 
 export const comercialGalleryImages: GalleryImage[] = [
     {
-        src: "/residencial/residencial1.webp",
+        src: "/commercial/commercial1.webp",
         alt: "Cleaning the bathroom",
     },
     {
-        src: "/residencial/residencial2.webp",
+        src: "/commercial/commercial2.webp",
         alt: "Cleaning the bathroom",
     },
     {
-        src: "/residencial/recidencial3.webp",
+        src: "/commercial/commercial3.webp",
         alt: "Cleaning the bathroom",
     },
     {
-        src: "/residencial/recidencial4.webp",
+        src: "/commercial/commercial4.webp",
+        alt: "Cleaning the bathroom",
+    },
+    {
+        src: "/commercial/commercial5.webp",
         alt: "Cleaning the bathroom",
     },
 

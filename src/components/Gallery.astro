@@ -1,5 +1,6 @@
 ---
 import type { GalleryImage } from "@/data/galleryImages";
+import { Image } from "astro:assets";
 
 const { images } = Astro.props;
 ---
@@ -8,7 +9,7 @@ const { images } = Astro.props;
   <div class="bento-grid" id="galleryGrid">
     {
       images.map(({ src, alt }: GalleryImage) => (
-        <img
+        <Image
           src={src}
           width={250}
           height={150}
